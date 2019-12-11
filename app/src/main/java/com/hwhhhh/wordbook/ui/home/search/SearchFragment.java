@@ -39,19 +39,23 @@ public class SearchFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
-    public static SearchFragment getInstance() {
+    public static SearchFragment getInstance()
+
         if (searchFragment == null) {
             synchronized(SearchFragment.class) {
                 if (searchFragment == null) {
                     searchFragment = new SearchFragment();
                 }
             }
+
         }
+
         return searchFragment;
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
@@ -59,7 +63,8 @@ public class SearchFragment extends Fragment {
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
+    public void onHiddenChanged(boolean hidden)
+    {
         super.onHiddenChanged(hidden);
         if (!hidden) {
             if (this.words != null) {
